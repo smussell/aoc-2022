@@ -17,11 +17,6 @@
        process-input
        (apply max)))
 
-(defn part2 [input] 
-  (-> input 
-      process-input
-      (#(reduce + (->> % sort reverse (take 3))))))
-
 (def sample-input "
 1000
 2000
@@ -45,6 +40,12 @@
    :output "24000"
    }
 ])
+
+
+(defn part2 [input]
+  (-> input
+      process-input
+      (#(reduce + (->> % sort reverse (take 3))))))
 
 (run-test part2 "day1Input.txt" should-run-mocks [
   {
