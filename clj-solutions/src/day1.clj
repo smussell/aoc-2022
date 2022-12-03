@@ -1,31 +1,26 @@
-
 (ns day1
   (:use util)
   (:require [clojure.string :as str]))
 
-(defn parse-int [s]
-  (Integer. (re-find  #"\d+" s)))
-
-(def should-run-mocks true)
-
-(defn integers [str] 
-  (map parse-int (str/split str #"\n")))
+(def should-run-mocks false)
 
 (defn process-input [input] 
-  (let [groups (-> input str/trim (.split "\n\n"))] 
-    (map #(reduce + (integers %)) groups)))
+  (->> input 
+       str/trim
+       split-groups
+       (map split-lines) 
+       (map parse-ints)
+       (map sum)))
 
 (defn part1 [input] 
   (->> input 
        process-input
-       (apply max)
-       ))
+       (apply max)))
 
-«(defn part2 [input] 
+(defn part2 [input] 
   (-> input 
       process-input
-      (#(reduce + (->> % sort reverse (take 3))))
-    ))
+      (#(reduce + (->> % sort reverse (take 3))))))
 
 (run-test part1 "day1Input.txt" should-run-mocks [
   {
