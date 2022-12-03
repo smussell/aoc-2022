@@ -12,40 +12,43 @@ const USER_AGENT_HEADER = {
   "User-Agent": "github.com/caderek/aocrunner by maciej.caderek@gmail.com"
 }
 
-const template = (day) =>  `(ns day1
+const template = (day) =>  `(ns day${day}
   (:use util)
   (:require [clojure.string :as str]))
 
 (def should-run-mocks true)
 
-(defn process-input [input] 
-  (-> input trim))
-
-(defn process-input [input] 
-  input)
+(defn process-input [input]
+  (->> input
+      str/trim
+      split-lines))
 
 (defn part1 [input] 
-  (-> input 
-    process-input
-    ))
+  (->> input 
+       process-input))
 
-(defn part2 [input] 
-  (-> input 
-    process-input
-    ))
+(def test-input-one "
+
+")
 
 (run-test part1 "day${day}Input.txt" should-run-mocks [
   {
-    :input "
-    "
-   :output ""
+    :input test-input-one
+    :output ""
   }
 ])
 
+(defn part2 [input] 
+  (->> input 
+       process-input))
+
+(def test-input-two "
+
+")
+
 (run-test part2 "day${day}Input.txt" should-run-mocks [
   {
-    :input "
-    "
+    :input test-input-two
     :output ""
   }
 ])
@@ -81,6 +84,7 @@ const main = () => {
     fetchInput(dayNum);
     const content = template(dayNum);
     writeFileSync(path.join(__dirname, '../src', `day${dayNum}.clj`), content);
+    console.log(`Created day${dayNum}.clj and day${day}Input.txt`)
   } else {
     console.log("Usage: npm start <daynum>")
   }
