@@ -22,9 +22,7 @@
       process-input
       (#(reduce + (->> % sort reverse (take 3))))))
 
-(run-test part1 "day1Input.txt" should-run-mocks [
-  {
-   :input "
+(def sample-input "
 1000
 2000
 3000
@@ -39,29 +37,18 @@
 9000
 
 10000
-"
+")
+
+(run-test part1 "day1Input.txt" should-run-mocks [
+  {
+   :input sample-input
    :output "24000"
    }
 ])
 
 (run-test part2 "day1Input.txt" should-run-mocks [
   {
-   :input "
-1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000
-"
+   :input sample-input
    :output "45000"
    }
 ])
