@@ -32,7 +32,7 @@
        (map #(+ (result %) (val-map %)))
        sum))
 
-(def test-input-one "
+(def sample-input "
 A Y
 B X
 C Z
@@ -40,7 +40,7 @@ C Z
 
 (run-test part1 "day2Input.txt" should-run-mocks [
   {
-    :input test-input-one
+    :input sample-input
    :output "15"
   }
 ])
@@ -66,15 +66,9 @@ C Z
        (map #(+ (infer-points %) (val-map-2 %)))
        sum))
 
-(def test-input-two "
-A Y
-B X
-C Z
-")
-
 (run-test part2 "day2Input.txt" should-run-mocks [
   {
-    :input test-input-two
+    :input sample-input
     :output "12"
   }
 ])
