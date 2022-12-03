@@ -1,4 +1,5 @@
-(ns util)
+(ns util
+  (:require [clojure.string :as str]))
 
 (defn debug [val] 
   (do (println val) val))
@@ -28,3 +29,21 @@
   (if should-run-mocks
    (run-with-mocks day-fn test-inputs)
    (day-fn (slurp (str "resources/" input-file)))))
+
+
+;; generic utils
+
+(defn sum [xs]
+  (reduce + xs))
+
+(defn split-groups [s]
+  (str/split s #"\n\n"))
+
+(defn split-lines [s]
+  (str/split s #"\n"))
+
+(defn parse-int [s]
+  (Integer/parseInt s))
+
+(defn parse-ints [list]
+  (map parse-int list))

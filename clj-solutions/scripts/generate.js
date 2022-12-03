@@ -12,8 +12,7 @@ const USER_AGENT_HEADER = {
   "User-Agent": "github.com/caderek/aocrunner by maciej.caderek@gmail.com"
 }
 
-const template = (day) =>  `
-(ns day1
+const template = (day) =>  `(ns day1
   (:use util)
   (:require [clojure.string :as str]))
 
