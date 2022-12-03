@@ -1,0 +1,15 @@
+{
+  "name": "clj-solutions",
+  "version": "1.0.0",
+  "description": "FIXME: description",
+  "scripts": {
+    "start": "node scripts/generate.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.0"
+  }
+}
