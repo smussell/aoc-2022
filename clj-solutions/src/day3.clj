@@ -19,15 +19,19 @@
 (defn split-half [seq] 
   (split-at (/ (count seq) 2) seq))
 
+(defn solve [seq]
+  (->> seq
+       (map #(map set %))
+       (map #(apply set/intersection %))
+       (map #(to-value (first %)))
+       sum))
+
 (defn part1 [input] 
   (->> input
        process-input
        (map seq)
        (map split-half)
-       (map #(map set %))
-       (map #(apply set/intersection %))
-       (map #(to-value (first %)))
-       sum))
+       solve))
 
 (def sample-input "
 vJrwpWtwJgWrhcsFMMfFFhFp
@@ -49,10 +53,7 @@ CrZsJsPPZsGzwwsLwLmpwMDw
   (->> input
        process-input
        (partition 3)
-       (map #(map set %))
-       (map #(apply set/intersection %))
-       (map #(to-value (first %)))
-       sum))
+       solve))
 
 (run-test part2 "day3Input.txt" should-run-mocks [
   {
