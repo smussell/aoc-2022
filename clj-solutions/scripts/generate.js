@@ -20,12 +20,13 @@ const template = (day) =>  `(ns day${day}
 
 (defn process-input [input]
   (->> input
-      str/trim
-      split-lines))
+       str/trim
+       split-lines))
 
 (defn part1 [input] 
   (->> input 
-       process-input))
+       process-input
+       debug))
 
 (def sample-input "
 
@@ -40,7 +41,8 @@ const template = (day) =>  `(ns day${day}
 
 (defn part2 [input] 
   (->> input 
-       process-input))
+       process-input
+       debug))
 
 (run-test part2 "day${day}Input.txt" should-run-mocks [
   {
