@@ -27,13 +27,13 @@ const template = (day) =>  `(ns day${day}
   (->> input 
        process-input))
 
-(def sample-inputs "
+(def sample-input "
 
 ")
 
 (run-test part1 "day${day}Input.txt" should-run-mocks [
   {
-    :input sample-inputs
+    :input sample-input
     :output ""
   }
 ])
@@ -44,7 +44,7 @@ const template = (day) =>  `(ns day${day}
 
 (run-test part2 "day${day}Input.txt" should-run-mocks [
   {
-    :input test-input-two
+    :input sample-input
     :output ""
   }
 ])
