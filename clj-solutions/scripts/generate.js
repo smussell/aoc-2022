@@ -80,7 +80,7 @@ const main = () => {
     fetchInput(dayNum);
     const content = template(dayNum);
     writeFileSync(path.join(__dirname, '../src', `day${dayNum}.clj`), content);
-    console.log(`Created day${dayNum}.clj and day${day}Input.txt`)
+    console.log(`Created day${dayNum}.clj and day${dayNum}Input.txt`)
   } else {
     console.log("Usage: npm start <daynum>")
   }
