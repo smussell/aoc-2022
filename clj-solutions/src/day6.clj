@@ -2,7 +2,7 @@
   (:use util)
   (:require [clojure.string :as str]))
 
-(def should-run-mocks false)
+(def should-run-mocks true)
 
 (defn process-input [input]
   (->> input
@@ -13,7 +13,7 @@
   (loop [list input 
          ind 0]
     (let [item-set (set (take len list))]
-      (if (= len (count item-set)) (+ len ind)
+      (if (= (count item-set) len) (+ len ind)
           (recur (rest list) (inc ind))))))
 
 (defn part1 [input] 
